@@ -1,7 +1,6 @@
 $(window).on('load',function(){
 
- 
- $('img[usemap]').maphilight();	
+  $('img[usemap]').maphilight();	
   $('img[usemap]').rwdImageMaps();
 
   //show countries data
@@ -14,9 +13,10 @@ $(window).on('load',function(){
 
   // function to get countries data
   function getData(continent, sub){
+   setTimeout(function(){$('.loader').show();},100);
    $.getJSON('https://restcountries.eu/rest/v2/region/' + continent + '', function(data){ 
     var cont = data;
-
+    setTimeout(function(){$('.loader').hide();},100);
       $('.continent_info').empty().append('<h2 class = "continent_title">' + continent + ' Countries</h2><div class = "list_wrapper"><table class = "info_list table"><thead><tr><th>COUNTRY</th><th>CAPITAL</th><th>REGION</th><th>POPULATION</th></tr></thead><tbody>');
      
       for(var i = 0; i < cont.length; i++ ){
@@ -33,10 +33,9 @@ $(window).on('load',function(){
         }
       }
     $('.continent_info').append('</tbody></table></div>');
-    $('.info_wrapper, #overlay').fadeIn('slow');
+    setTimeout(function(){$('.info_wrapper, #overlay').fadeIn('slow');},1000);
    })
   }
-
 
   //On each resize or hover refresh maphighlight so it is responsive
   $(window).on('resize hover', function(e)
@@ -50,9 +49,5 @@ $(window).on('load',function(){
   $('span.close__btn, #overlay').on('click',function(e){
      $('.info_wrapper, #overlay').fadeOut('slow');
   });
-
 });
-
-
-
 
