@@ -7,8 +7,7 @@ $(window).on('load',function(){
   $('.area').on('click',function(){
    var continent = $(this).attr('title');
    var sub = $(this).data('sub');
-   $('.continent_info').animate({ scrollTop: 0 });
-    getData(continent, sub);
+   getData(continent, sub);
   });
 
   // function to get countries data
@@ -33,7 +32,10 @@ $(window).on('load',function(){
         }
       }
     $('.continent_info').append('</tbody></table></div>');
-    setTimeout(function(){$('.info_wrapper, #overlay').fadeIn('slow');},1000);
+    setTimeout(function(){
+      $('.info_wrapper, #overlay').fadeIn('slow');
+      $('.continent_info').animate({ scrollTop: 0 });
+    },1000);
    })
   }
 
