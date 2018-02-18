@@ -2,29 +2,40 @@
 <html>
   <head>
     <title>Countries</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" 
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+          crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" 
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" 
+            crossorigin="anonymous"></script>
 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+            crossorigin="anonymous"></script>
 
     <script src = "js/maphighlight.js"></script>
     <script src = "js/responsive.js"></script>
-    <script src = "js/script.js"></script>
+    <script src = "js/app.js"></script>
 
   </head>
   <body>
-    <div class = "loader"><img src = "img/loader.gif" alt = "Loading..."></div>
-    <div id="overlay"></div>
-    <div class = "all__wrapper">
-      <div class = "map__wrapper">
-        <img id = "imgMap" src = "img/world-map2.png" alt = "world" usemap="#planetmap" class = "img_map">
+
+    <div id = "overlay"></div>
+    <div class = "loader" id = "loader">
+      <img src = "img/loader.gif" alt = "Loading...">
+    </div>
+
+    <div class = "wrapper">
+      <div class = "map-wrapper">
+        <img class = "map-img" id = "imgMap" src = "img/world-map2.png" alt = "world" usemap="#planetmap">
 
         <map name="planetmap">
           <area class = "area south-america" shape="poly" coords="442,512,417,549,415,574,392,601,391,637,437,718,472,743,479,900,497,914,497,939,529,981,550,982,542,989,553,1002,584,1002,586,999,555,978,550,900,594,879,594,875,576,853,597,860,628,803,632,778,680,758,688,690,711,660,711,644,675,619,643,617,644,608,622,600,612,611,615,597,604,592,591,605,601,586,587,556,559,554,531,528,503,525,488,512" alt="South america" title = "Americas" data-sub = "2">
@@ -40,9 +51,8 @@
           <area class = "area asia" shape="poly" coords="1180,300,1195,297,1224,308,1218,298,1219,282,1208,265, 1207,242,1275,242,1275,200,1268,170,1269,124,1260,104,1280,104,1287,112,1354,79,1440,77,1445,94,1525,94,1543,110,1578,110,1590,100,1640,104,1648,112,1778,115,1863,132,1879,150,1851,170,1806,187,1825,210,1825,240,1796,300,1798,353,1730,393,1700,393,1702,397,1696,415,1714,425,1708,443,1748,519,1764,575,1849,620,1849,673,1827,665,1764,665,1764,670,1740,680,1700,680,1680,674,1615,660,1545,565,1560,535,1562,521,1556,496,1547,496,1540,490,1534,475,1505,451,1458,496,1455,526,1425,544,1395,460,1380,460,1353,432,1325,432,1279,490,1211,518,1195,472,1143,385, 1146,360,1127,360,1127,350,1105,347,1087,316,1098,316,1100,308,1178,307" alt="Europe" title = "Asia" data-sub = "0">
         </map>
       </div>
-      <div class = "info_wrapper">
-        <span class = "close__btn">&times;</span>
-        <div class = "continent_info">
+      <div class = "popup-wrapper col-xs-12">
+        <div class = "popup-content col-xs-12">
           <!-- Continent info -->
         </div>
       </div>
