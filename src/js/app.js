@@ -23,7 +23,6 @@
       var self = this;
       var continent = $(event.target).attr('title');
       var sub = $(event.target).data('sub');
-      this.$loader.show();
       $.getJSON('https://restcountries.eu/rest/v2/region/' + continent + '', function(data){ 
         var cont = data;
         self.$content.empty().append(  
