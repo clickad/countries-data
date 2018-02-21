@@ -11,6 +11,7 @@
       this.$close = $('#close');
       this.$content = $('.popup-content');
       this.$infoWrapper = $('.popup-wrapper');
+      this.$imgUsemap.show();
       this.$imgUsemap.maphilight();
       this.$imgUsemap.rwdImageMaps();
       this.$area.on('click', this.listData.bind(this));
