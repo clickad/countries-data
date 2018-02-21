@@ -8,14 +8,15 @@
       this.$area = $('.area');
       this.$loader = $('#loader');
       this.$overlay = $('#overlay');
+      this.$close = $('#close');
       this.$content = $('.popup-content');
       this.$infoWrapper = $('.popup-wrapper');
-
       this.$imgUsemap.maphilight();
       this.$imgUsemap.rwdImageMaps();
       this.$area.on('click', this.listData.bind(this));
       this.$window.on('resize hover', this.onResize.bind(this));
       this.$overlay.on('click', this.hidePopup.bind(this));
+      this.$close.on('click', this.hidePopup.bind(this));
     },
 
     listData: function(event){
@@ -26,13 +27,7 @@
       $.getJSON('https://restcountries.eu/rest/v2/region/' + continent + '', function(data){ 
         var cont = data;
         self.$content.empty().append(  
-          `<h2 class = "popup-title">` + continent + ` Countries</h2>
-           <div class = "popup-list">
-           <table class = "popup-table table">
-           <thead><tr><th>COUNTRY</th>
-           <th>CAPITAL</th><th>REGION</th>
-           <th>POPULATION</th></tr>
-           </thead><tbody>`
+          '<h2 class = "popup-title">' + continent + ' Countries</h2><div class = "popup-list"><table class = "popup-table table"><thead>       <tr><th>COUNTRY</th><th>CAPITAL</th><th>REGION</th><th>POPULATION</th></tr></thead><tbody>'
         );
         self.$tBody = $('tbody');
         for(var i = 0; i < cont.length; i++ ){
@@ -41,31 +36,22 @@
                cont[i].subregion === "Central America" || 
                cont[i].subregion ==="Caribbean"){
               self.$tBody.append(
-                `<tr><td>`+ cont[i].name +`</td>
-                 <td>`+ cont[i].capital +`</td>
-                 <td>`+ cont[i].subregion +`</td>
-                 <td>` + cont[i].population + `</td></tr>`
+                '<tr><td>'+ cont[i].name +'</td><td>'+ cont[i].capital +'</td><td>'+ cont[i].subregion +'</td><td>' + cont[i].population + '</td></tr>'
               );
             }
           } else if(sub === 2){
             if(cont[i].subregion === "South America"){
               self.$tBody.append(
-                `<tr><td>`+cont[i].name+`</td>
-                 <td>`+ cont[i].capital +`</td>
-                 <td>`+ cont[i].subregion +`</td>
-                 <td>` + cont[i].population + `</td></tr>`
+                '<tr><td>'+cont[i].name+'</td><td>'+ cont[i].capital +'</td><td>'+ cont[i].subregion +'</td><td>' + cont[i].population + '</td></tr>'
               );
             }
           } else {
             self.$tBody.append(
-                `<tr><td>` + cont[i].name +`</td>
-                 <td>`+ cont[i].capital +`</td>
-                 <td>`+ cont[i].subregion +`</td>
-                 <td>` + cont[i].population + `</td></tr>`
+                '<tr><td>' + cont[i].name +'</td><td>'+ cont[i].capital +'</td><td>'+ cont[i].subregion +'</td><td>' + cont[i].population + '</td></tr>'
             );
           }
         }
-        self.$content.append(`</tbody></table></div>`);
+        self.$content.append('</tbody></table></div>');
       });
       this.showPopup();
     },
