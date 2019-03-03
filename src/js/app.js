@@ -1,6 +1,6 @@
-(function(){
+(()=>{
   'use strict';
-  var app = {
+  let app = {
     init: function(){
       this.$window = $(window);
       this.$document = $(document);
@@ -22,37 +22,68 @@
 
     listData: function(event){
       this.showLoader();
-      var self = this;
-      var continent = $(event.target).attr('title');
-      var sub = $(event.target).data('sub');
-      $.getJSON('https://restcountries.eu/rest/v2/region/' + continent + '', function(data){ 
-        var cont = data;
+      let self = this;
+      let continent = $(event.target).attr('title');
+      let sub = $(event.target).data('sub');
+      $.getJSON('https://restcountries.eu/rest/v2/region/' + continent + '', (data)=> { 
+        let cont = data;
         self.$content.empty().append(  
-          '<h2 class = "popup-title">' + continent + ' Countries</h2><div class = "popup-list"><table class = "popup-table table"><thead>       <tr><th>COUNTRY</th><th>CAPITAL</th><th>REGION</th><th>POPULATION</th></tr></thead><tbody>'
+          `<h2 class = "popup-title">
+            ${continent} Countries
+          </h2>
+          <div class = "popup-list">
+            <table class = "popup-table table">
+              <thead>       
+                <tr>
+                  <th>COUNTRY</th>
+                  <th>CAPITAL</th>
+                  <th>REGION</th>
+                  <th>POPULATION</th>
+                </tr>
+              </thead>
+              <tbody>`
         );
         self.$tBody = $('tbody');
-        for(var i = 0; i < cont.length; i++ ){
+        for(let i = 0; i < cont.length; i++ ){
           if(sub === 1){
             if(cont[i].subregion === "Northern America" || 
                cont[i].subregion === "Central America" || 
                cont[i].subregion ==="Caribbean"){
               self.$tBody.append(
-                '<tr><td>'+ cont[i].name +'</td><td>'+ cont[i].capital +'</td><td>'+ cont[i].subregion +'</td><td>' + cont[i].population + '</td></tr>'
+                `<tr>
+                  <td>${cont[i].name}</td>
+                  <td>${cont[i].capital}</td>
+                  <td>${cont[i].subregion}</td>
+                  <td>${cont[i].population}</td>
+                </tr>`
               );
             }
           } else if(sub === 2){
             if(cont[i].subregion === "South America"){
               self.$tBody.append(
-                '<tr><td>'+cont[i].name+'</td><td>'+ cont[i].capital +'</td><td>'+ cont[i].subregion +'</td><td>' + cont[i].population + '</td></tr>'
+                `<tr>
+                  <td>${cont[i].name}</td>
+                  <td>${cont[i].capital}</td>
+                  <td>${cont[i].subregion}</td>
+                  <td>${cont[i].population}</td>
+                </tr>`
               );
             }
           } else {
             self.$tBody.append(
-                '<tr><td>' + cont[i].name +'</td><td>'+ cont[i].capital +'</td><td>'+ cont[i].subregion +'</td><td>' + cont[i].population + '</td></tr>'
+                `<tr>
+                  <td>${cont[i].name}</td>
+                  <td>${cont[i].capital}</td>
+                  <td>${cont[i].subregion}</td>
+                  <td>${cont[i].population}</td>
+                </tr>`
             );
           }
         }
-        self.$content.append('</tbody></table></div>');
+        self.$content.append(
+              `</tbody>
+            </table>
+          </div>`);
       });
       this.showPopup();
     },
@@ -69,11 +100,11 @@
     },
 
     showLoader: function(){
-      var self = this;
-      this.$document.ajaxStart(function() {
+      let self = this;
+      this.$document.ajaxStart(()=> {
         self.$loader.show();
       });
-      this.$document.ajaxComplete(function() {
+      this.$document.ajaxComplete(()=> {
         self.$loader.hide();
       });
     },
@@ -83,7 +114,7 @@
     }
   };
 
-  $(window).on('load',function(){
+  $(window).on('load',()=> {
     app.init();
   });
 })();
