@@ -43,6 +43,10 @@ a:hover{
 left: 50%;
 
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
 
 }
 
@@ -79,6 +83,10 @@ left: 50%;
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -89,6 +97,10 @@ left: 50%;
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
   background-repeat: no-repeat !important;
   background-position: center;
   display: none;
@@ -104,6 +116,10 @@ canvas{
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%,-50%) !important;
+  -webkit-transform: translate(-50%, -50%) !important;
+  -moz-transform: translate(-50%, -50%) !important;
+  -ms-transform: translate(-50%, -50%) !important;
+  -o-transform: translate(-50%, -50%) !important;
 }
 
 .popup-wrapper {
@@ -111,6 +127,10 @@ canvas{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%) !important;
+  -webkit-transform: translate(-50%, -50%) !important;
+  -moz-transform: translate(-50%, -50%) !important;
+  -ms-transform: translate(-50%, -50%) !important;
+  -o-transform: translate(-50%, -50%) !important;
   display: none;
   background-color: transparent;
   z-index: 3;
