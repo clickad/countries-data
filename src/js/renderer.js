@@ -1,4 +1,4 @@
-import  Popup from './popup.js';
+import Popup from './popup.js';
 
 export default class Renderer extends Popup{
 
